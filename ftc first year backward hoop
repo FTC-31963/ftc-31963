@@ -1,0 +1,81 @@
+package org.firstinspires.ftc.teamcode;
+
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
+
+@Autonomous(name = "backwardhoop (Blocks to Java)")
+public class backwardhoop extends LinearOpMode {
+
+  private DcMotor upperwheel;
+  private DcMotor blocker;
+  private DcMotor leftwheel;
+  private DcMotor rcontrolhubside;
+
+  /**
+   * This function is executed when this Op Mode is selected from the Driver Station.
+   */
+  @Override
+  public void runOpMode() {
+    upperwheel = hardwareMap.get(DcMotor.class, "upperwheel");
+    blocker = hardwareMap.get(DcMotor.class, "blocker");
+    leftwheel = hardwareMap.get(DcMotor.class, "leftwheel");
+    rcontrolhubside = hardwareMap.get(DcMotor.class, "rcontrol hub side");
+
+    // Put initialization blocks here.
+    upperwheel.setDirection(DcMotor.Direction.REVERSE);
+    blocker.setDirection(DcMotor.Direction.FORWARD);
+    leftwheel.setDirection(DcMotor.Direction.FORWARD);
+    rcontrolhubside.setDirection(DcMotor.Direction.REVERSE);
+    // Put run blocks here.
+    waitForStart();
+    rcontrolhubside.setPower(50);
+    leftwheel.setPower(50);
+    blocker.setPower(30);
+    upperwheel.setPower(0);
+    sleep(450);
+    rcontrolhubside.setPower(0);
+    leftwheel.setPower(0);
+    blocker.setPower(30);
+    upperwheel.setPower(0);
+    sleep(2000);
+    upperwheel.setPower(0);
+    blocker.setPower(30);
+    sleep(500);
+    blocker.setPower(30);
+    upperwheel.setPower(0);
+    sleep(1000);
+    upperwheel.setPower(30);
+    blocker.setPower(30);
+    sleep(500);
+    upperwheel.setPower(0);
+    blocker.setPower(0);
+    sleep(500);
+    upperwheel.setPower(30);
+    blocker.setPower(30);
+    sleep(500);
+    upperwheel.setPower(0);
+    blocker.setPower(0);
+    sleep(500);
+    upperwheel.setPower(30);
+    blocker.setPower(30);
+    sleep(500);
+    upperwheel.setPower(0);
+    blocker.setPower(0);
+    sleep(3000);
+    upperwheel.setPower(30);
+    blocker.setPower(30);
+    sleep(500);
+    upperwheel.setPower(0);
+    blocker.setPower(0);
+    sleep(500);
+    upperwheel.setPower(30);
+    blocker.setPower(30);
+    sleep(3000);
+    upperwheel.setPower(30);
+    blocker.setPower(30);
+    sleep(2000);
+    blocker.setPower(0);
+    upperwheel.setPower(0);
+  }
+}
