@@ -1,1 +1,55 @@
-<h1> Hello world! <h1>
+package org.firstinspires.ftc.teamcode;
+
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
+
+@TeleOp(name = "_2nd (Blocks to Java)")
+public class _2nd extends LinearOpMode {
+
+  private DcMotor leftwheel;
+  private DcMotor rcontrolhubside;
+  private DcMotor upperwheel;
+  private DcMotor blocker;
+
+  /**
+   * This sample contains the bare minimum Blocks for any regular OpMode. The 3 blue
+   * Comment Blocks show where to place Initialization code (runs once, after touching the
+   * DS INIT button, and before touching the DS Start arrow), Run code (runs once, after
+   * touching Start), and Loop code (runs repeatedly while the OpMode is active, namely not
+   * Stopped).
+   */
+  @Override
+  public void runOpMode() {
+    leftwheel = hardwareMap.get(DcMotor.class, "leftwheel");
+    rcontrolhubside = hardwareMap.get(DcMotor.class, "rcontrol hub side");
+    upperwheel = hardwareMap.get(DcMotor.class, "upperwheel");
+    blocker = hardwareMap.get(DcMotor.class, "blocker");
+
+    // Put initialization blocks here.
+    waitForStart();
+    if (opModeIsActive()) {
+      // Put run blocks here.
+      leftwheel.setDirection(DcMotor.Direction.FORWARD);
+      rcontrolhubside.setDirection(DcMotor.Direction.FORWARD);
+      upperwheel.setDirection(DcMotor.Direction.FORWARD);
+      blocker.setDirection(DcMotor.Direction.FORWARD);
+      while (opModeIsActive()) {
+        // Put loop blocks here.
+        telemetry.update();
+        if (gamepad1.x_was_pressed()) {
+          leftwheel.setPower(-60);
+          upperwheel.setPower(60);
+          blocker.setPower(60);
+          rcontrolhubside.setPower(-60);
+        }
+        if (gamepad1.b_was_pressed()) {
+          leftwheel.setPower(60);
+          upperwheel.setPower(-60);
+          blocker.setPower(-60);
+          rcontrolhubside.setPower(60);
+        }
+      }
+    }
+  }
+}
