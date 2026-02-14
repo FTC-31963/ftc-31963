@@ -38,8 +38,18 @@ public class real extends LinearOpMode {
         // Put loop blocks here.
         rcontrolhubside.setPower(-gamepad1.right_stick_y);
         leftwheel.setPower(-gamepad1.left_stick_y);
-        upperwheel.setPower(-gamepad2.left_stick_y);
-        blocker.setPower(-gamepad2.right_stick_y);
+        if (gamepad2.b_was_pressed()) {
+          upperwheel.setPower(4.2);
+          blocker.setPower(4.2);
+if (gamepad1.y_was_pressed()) {
+          upperwheel.setPower(3.2);
+          blocker.setPower(3.2);
+if (gamepad1.a_was_pressed()) {
+          upperwheel.setPower(3.8);
+          blocker.setPower(3.8);
+if (gamepad1.x_was_pressed()) {
+          upperwheel.setPower(3.5);
+          blocker.setPower(3.5);
       }
     }
   }
