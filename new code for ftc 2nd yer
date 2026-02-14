@@ -30,24 +30,24 @@ public class _2nd extends LinearOpMode {
     waitForStart();
     if (opModeIsActive()) {
       // Put run blocks here.
-      leftwheel.setDirection(DcMotor.Direction.FORWARD);
-      rcontrolhubside.setDirection(DcMotor.Direction.FORWARD);
-      upperwheel.setDirection(DcMotor.Direction.FORWARD);
-      blocker.setDirection(DcMotor.Direction.FORWARD);
+      frontright.setDirection(DcMotor.Direction.FORWARD);
+      frontleft.setDirection(DcMotor.Direction.FORWARD);
+      backright.setDirection(DcMotor.Direction.FORWARD);
+      backleft.setDirection(DcMotor.Direction.FORWARD);
       while (opModeIsActive()) {
         // Put loop blocks here.
         telemetry.update();
         if (gamepad1.x_was_pressed()) {
-          leftwheel.setPower(-60);
-          upperwheel.setPower(60);
-          blocker.setPower(60);
-          rcontrolhubside.setPower(-60);
+          frontright.setPower(-60);
+          frontleft.setPower(60);
+          backright.setPower(60);
+          backleft.setPower(-60);
         }
         if (gamepad1.b_was_pressed()) {
-          leftwheel.setPower(60);
-          upperwheel.setPower(-60);
-          blocker.setPower(-60);
-          rcontrolhubside.setPower(60);
+          frontright.setPower(60);
+          frontleft.setPower(-60);
+          backright.setPower(-60);
+          backleft.setPower(60);
         }
       }
     }
