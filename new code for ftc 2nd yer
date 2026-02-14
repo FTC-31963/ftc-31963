@@ -7,10 +7,10 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 @TeleOp(name = "_2nd (Blocks to Java)")
 public class _2nd extends LinearOpMode {
 
-  private DcMotor leftwheel;
-  private DcMotor rcontrolhubside;
-  private DcMotor upperwheel;
-  private DcMotor blocker;
+  private DcMotor frontright;
+  private DcMotor frontleft;
+  private DcMotor backright;
+  private DcMotor backleft;
 
   /**
    * This sample contains the bare minimum Blocks for any regular OpMode. The 3 blue
@@ -21,10 +21,10 @@ public class _2nd extends LinearOpMode {
    */
   @Override
   public void runOpMode() {
-    leftwheel = hardwareMap.get(DcMotor.class, "leftwheel");
-    rcontrolhubside = hardwareMap.get(DcMotor.class, "rcontrol hub side");
-    upperwheel = hardwareMap.get(DcMotor.class, "upperwheel");
-    blocker = hardwareMap.get(DcMotor.class, "blocker");
+    frontright = hardwareMap.get(DcMotor.class, "frontright");
+    frontleft = hardwareMap.get(DcMotor.class, "frontleft");
+    backright = hardwareMap.get(DcMotor.class, "backright");
+    backleft = hardwareMap.get(DcMotor.class, "backleft");
 
     // Put initialization blocks here.
     waitForStart();
