@@ -4,8 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@TeleOp(name = "_2nd (Blocks to Java)")
-public class _2nd extends LinearOpMode {
+@TeleOp(name = "real (Blocks to Java)")
+public class real extends LinearOpMode {
 
   private DcMotor frontright;
   private DcMotor frontleft;
@@ -27,27 +27,30 @@ public class _2nd extends LinearOpMode {
     backleft = hardwareMap.get(DcMotor.class, "backleft");
 
     // Put initialization blocks here.
+    frontright.setDirection(DcMotor.Direction.FORWARD);
+    frontleft.setDirection(DcMotor.Direction.FORWARD);
+    backright.setDirection(DcMotor.Direction.FORWARD);
+    backleft.setDirection(DcMotor.Direction.FORWARD);
     waitForStart();
     if (opModeIsActive()) {
       // Put run blocks here.
-      frontright.setDirection(DcMotor.Direction.FORWARD);
-      frontleft.setDirection(DcMotor.Direction.FORWARD);
-      backright.setDirection(DcMotor.Direction.FORWARD);
-      backleft.setDirection(DcMotor.Direction.FORWARD);
       while (opModeIsActive()) {
         // Put loop blocks here.
-        telemetry.update();
-        if (gamepad1.x_was_pressed()) {
-          frontright.setPower(-60);
+        backright.setPower(-gamepad1.left_stick_y);
+        backleft.setPower(-gamepad1.left_stick_y);
+        frontleft.setPower(-gamepad1.right_stick_y);
+        frontright.setPower(-gamepad1.right_stick_y);
+        if (gamepad1.x) {
           frontleft.setPower(60);
-          backright.setPower(60);
-          backleft.setPower(-60);
-        }
-        if (gamepad1.b_was_pressed()) {
-          frontright.setPower(60);
-          frontleft.setPower(-60);
+          frontright.setPower(-60);
           backright.setPower(-60);
           backleft.setPower(60);
+        }
+        if (gamepad1.b) {
+          frontleft.setPower(-60);
+          frontright.setPower(60);
+          backright.setPower(60);
+          backleft.setPower(-60);
         }
       }
     }
